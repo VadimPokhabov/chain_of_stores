@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django_filters',
 
     'users',
+    'product',
     'trading',
 ]
 
@@ -114,3 +115,7 @@ REST_FRAMEWORK = {
     ),
 }
 
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.RemoteUserBackend',
+        'django.contrib.auth.backends.ModelBackend',
+)
