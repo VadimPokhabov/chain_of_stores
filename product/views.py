@@ -1,7 +1,11 @@
 from rest_framework import viewsets
 
 from product.models import FactoryProduct, NetworkProduct, BusinessmanProduct
-from product.serializers import FactoryProductSerializer, NetworkProductSerializer, BusinessmanProductSerializer
+from product.serializers import (
+    FactoryProductSerializer,
+    NetworkProductSerializer,
+    BusinessmanProductSerializer,
+)
 
 
 class FactoryProductViewSet(viewsets.ModelViewSet):

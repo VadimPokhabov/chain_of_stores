@@ -8,11 +8,11 @@ app_name = TradingConfig.name
 
 
 router = routers.DefaultRouter()
-router.register(r'factory', FactoryViewSet)
-router.register(r'network', NetworkViewSet)
-router.register(r'businessman', BusinessmanViewSet)
+router.register(r"factory", FactoryViewSet)
+router.register(r"network", NetworkViewSet)
+router.register(r"businessman", BusinessmanViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
 ]

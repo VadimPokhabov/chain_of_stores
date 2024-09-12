@@ -114,8 +114,3 @@ REST_FRAMEWORK = {
         'users.permissions.IsActiveUser',
     ),
 }
-
-AUTHENTICATION_BACKENDS = (
-        'django.contrib.auth.backends.RemoteUserBackend',
-        'django.contrib.auth.backends.ModelBackend',
-)

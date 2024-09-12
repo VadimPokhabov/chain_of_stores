@@ -2,14 +2,17 @@ from django.db import models
 
 
 class BaseRetail(models.Model):
-    name = models.CharField(max_length=350, verbose_name='Название')
-    email = models.EmailField(unique=True, verbose_name='email')
-    country = models.CharField(max_length=150, verbose_name='Страна')
-    city = models.CharField(max_length=150, verbose_name='Город')
-    street = models.CharField(max_length=150, verbose_name='Улица')
-    house_number = models.CharField(max_length=50, verbose_name='Номер дома')
-    arrears = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name='Задолженность')
-    create_time = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+    name = models.CharField(max_length=350, verbose_name="Название")
+    email = models.EmailField(unique=True, verbose_name="email")
+    country = models.CharField(max_length=150, verbose_name="Страна")
+    city = models.CharField(max_length=150, verbose_name="Город")
+    street = models.CharField(max_length=150, verbose_name="Улица")
+    house_number = models.CharField(max_length=50, verbose_name="Номер дома")
+    arrears = models.DecimalField(
+        max_digits=10, decimal_places=2,
+        default=0, verbose_name="Задолженность")
+    create_time = models.DateTimeField(verbose_name="Дата создания",
+                                       auto_now_add=True)
 
     class Meta:
         abstract = True
@@ -21,11 +24,11 @@ class Factory(BaseRetail):
     """
 
     def __str__(self):
-        return f' {self.name}'
+        return f" {self.name}"
 
     class Meta:
-        verbose_name = 'Завод'
-        verbose_name_plural = 'Заводы'
+        verbose_name = "Завод"
+        verbose_name_plural = "Заводы"
 
 
 class Network(BaseRetail):
@@ -33,14 +36,16 @@ class Network(BaseRetail):
     Розничная сеть
     """
 
-    supplier = models.ForeignKey(Factory, on_delete=models.CASCADE, verbose_name='Поставщик')
+    supplier = models.ForeignKey(
+        Factory, on_delete=models.CASCADE, verbose_name="Поставщик"
+    )
 
     def __str__(self):
-        return f' {self.name}'
+        return f" {self.name}"
 
     class Meta:
-        verbose_name = 'Розничная сеть'
-        verbose_name_plural = 'Розничные сети'
+        verbose_name = "Розничная сеть"
+        verbose_name_plural = "Розничные сети"
 
 
 class Businessman(BaseRetail):
@@ -48,11 +53,13 @@ class Businessman(BaseRetail):
     Индивидуальный предприниматель
     """
 
-    supplier = models.ForeignKey(Network, on_delete=models.CASCADE, verbose_name='Поставщик')
+    supplier = models.ForeignKey(
+        Network, on_delete=models.CASCADE, verbose_name="Поставщик"
+    )
 
     def __str__(self):
-        return f' {self.name}'
+        return f" {self.name}"
 
     class Meta:
-        verbose_name = 'Индивидуальный предприниматель'
-        verbose_name_plural = 'Индивидуальные предприниматели'
+        verbose_name = "Индивидуальный предприниматель"
+        verbose_name_plural = "Индивидуальные предприниматели"

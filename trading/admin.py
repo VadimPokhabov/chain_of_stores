@@ -9,27 +9,46 @@ def clear_debt(modeladmin, request, queryset):
         obj.save()
 
 
-clear_debt.short_description = 'Очистить задолженность'
+clear_debt.short_description = "Очистить задолженность"
 
-fields_display = ['name', 'email', 'country', 'city', 'street', 'house_number', 'arrears', 'supplier', 'create_time']
+fields_display = [
+    "name",
+    "email",
+    "country",
+    "city",
+    "street",
+    "house_number",
+    "arrears",
+    "supplier",
+    "create_time",
+]
 
 
 @admin.register(Factory)
 class FactoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'country', 'city', 'street', 'house_number', 'arrears', 'create_time']
-    list_filter = ('city',)
+    list_display = [
+        "name",
+        "email",
+        "country",
+        "city",
+        "street",
+        "house_number",
+        "arrears",
+        "create_time",
+    ]
+    list_filter = ("city",)
     actions = [clear_debt]
 
 
 @admin.register(Network)
 class NetworkAdmin(admin.ModelAdmin):
     list_display = fields_display
-    list_filter = ('city',)
+    list_filter = ("city",)
     actions = [clear_debt]
 
 
 @admin.register(Businessman)
 class BusinessmanAdmin(admin.ModelAdmin):
     list_display = fields_display
-    list_filter = ('city',)
+    list_filter = ("city",)
     actions = [clear_debt]
