@@ -61,3 +61,9 @@ ____
 ```
 python manage.py loaddata db.json
 ```
+----
+В файле db2.json исключены таблицы contenttypes и auth.permissions
+
+```commandline
+python manage.py loaddata db2.json
+```
