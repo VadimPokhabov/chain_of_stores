@@ -53,3 +53,11 @@ pip install -r requirements.txt
 python manage.py ruserver
 ```
 ____
+
+### Импорт (восстановление) с loaddata
+
+Команда loaddata позволяет загрузить фикстуры (экспортированные с помощью dumpdata данные). Синтаксис :
+
+```
+python manage.py loaddata db.json
+```
