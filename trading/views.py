@@ -19,7 +19,7 @@ class FactoryViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
         data = request.data.copy()
-        data.pop("arrears", None)  # Запрет обновления поля arrears
+        data.pop("arrears", None)
         serializer = self.get_serializer(instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
