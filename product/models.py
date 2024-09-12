@@ -3,6 +3,9 @@ from trading.models import Factory, Network, Businessman
 
 
 class BaseProduct(models.Model):
+    """
+    Модель продуктов (база)
+    """
     product_name = models.CharField(max_length=150,
                                     verbose_name="Название продукта"
                                     )
@@ -16,6 +19,9 @@ class BaseProduct(models.Model):
 
 
 class FactoryProduct(BaseProduct):
+    """
+    Модель продуктов Factory
+    """
     factory = models.ForeignKey(Factory, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -27,6 +33,9 @@ class FactoryProduct(BaseProduct):
 
 
 class NetworkProduct(BaseProduct):
+    """
+    Модель продуктов Network
+    """
     network = models.ForeignKey(Network, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -38,6 +47,9 @@ class NetworkProduct(BaseProduct):
 
 
 class BusinessmanProduct(BaseProduct):
+    """
+    Модель продуктов Businessman
+    """
     entrepreneur = models.ForeignKey(Businessman, on_delete=models.CASCADE)
 
     def __str__(self):

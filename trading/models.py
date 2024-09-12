@@ -2,6 +2,9 @@ from django.db import models
 
 
 class BaseRetail(models.Model):
+    """
+    Базовая розничная торговля
+    """
     name = models.CharField(max_length=350, verbose_name="Название")
     email = models.EmailField(unique=True, verbose_name="email")
     country = models.CharField(max_length=150, verbose_name="Страна")
@@ -20,7 +23,7 @@ class BaseRetail(models.Model):
 
 class Factory(BaseRetail):
     """
-    Завод
+    Модель завода
     """
 
     def __str__(self):
@@ -33,7 +36,7 @@ class Factory(BaseRetail):
 
 class Network(BaseRetail):
     """
-    Розничная сеть
+    Модель розничной сети
     """
 
     supplier = models.ForeignKey(
@@ -50,7 +53,7 @@ class Network(BaseRetail):
 
 class Businessman(BaseRetail):
     """
-    Индивидуальный предприниматель
+     Модель Индивидуального предпринимателя
     """
 
     supplier = models.ForeignKey(

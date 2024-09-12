@@ -3,6 +3,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
+    """
+    User model
+    """
     first_name = models.CharField(max_length=150,
                                   verbose_name="имя", blank=True)
     last_name = models.CharField(max_length=150,

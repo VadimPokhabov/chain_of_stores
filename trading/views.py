@@ -11,6 +11,9 @@ from trading.serializers import (
 
 
 class FactoryViewSet(viewsets.ModelViewSet):
+    """
+    Factory View Set
+    """
     queryset = Factory.objects.all()
     serializer_class = FactorySerializer
     filter_backends = (filters.SearchFilter,)
@@ -28,10 +31,16 @@ class FactoryViewSet(viewsets.ModelViewSet):
 
 
 class NetworkViewSet(viewsets.ModelViewSet):
+    """
+    Network View Set
+    """
     queryset = Network.objects.all()
     serializer_class = NetworkSerializer
 
 
 class BusinessmanViewSet(viewsets.ModelViewSet):
+    """
+    Businessman View Set
+    """
     queryset = Businessman.objects.all()
     serializer_class = BusinessmanSerializer
